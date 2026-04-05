@@ -24,4 +24,12 @@ export interface ScrollEvent extends BaseEvent {
   scroll_percent: 50 | 75;
 }
 
+export interface ContentViewArtistEvent extends BaseEvent {
+  event: 'content_view_artist';
+  artist_id: string;
+}
+
 export type CoreEvent = TicketClickEvent | ScrollEvent;
+
+/** All events dispatched to PostHog / gtag from this module */
+export type TrackedEvent = CoreEvent | ContentViewArtistEvent;
