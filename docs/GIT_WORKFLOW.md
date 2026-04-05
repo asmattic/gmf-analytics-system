@@ -14,7 +14,7 @@ All changes ship through **pull requests** on `main`. After merge, **delete the 
    - `chore:` tooling, config, deps
    - `refactor:`, `test:`, `ci:` as needed
 4. `git push -u origin <branch>` and open a **PR** on GitHub.
-5. Wait for **CI** (lint + build) to pass and get review as needed.
+5. Wait for **CI** (lint + build) to pass and get review as needed. CI runs on every push and pull request via `.github/workflows/ci.yml` (`pnpm lint`, `pnpm build`).
 6. **Merge** the PR into `main` (this project uses **squash merge** for a linear history unless you agree otherwise as a team).
 7. **Delete the branch**: use the GitHub PR UI, or `git push origin --delete <branch>`, and locally `git branch -d <branch>`.
 8. Update local `main`: `git checkout main && git pull origin main`.
