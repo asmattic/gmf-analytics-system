@@ -1,6 +1,6 @@
 # AGENTS.md — GMF Analytics System
 
-Use this file as the durable handoff for humans and coding agents (along with [docs/ROADMAP.md](docs/ROADMAP.md)).
+Use this file as the durable handoff for humans and coding agents (along with [docs/ROADMAP.md](docs/ROADMAP.md) and [docs/INTENT_REVIEW_AND_PRIORITIES.md](docs/INTENT_REVIEW_AND_PRIORITIES.md)).
 
 ## Intent
 
@@ -57,3 +57,4 @@ Summary:
 - [docs/03-tight-core.md](docs/03-tight-core.md) — tight core inputs and metric name
 - [docs/metrics.md](docs/metrics.md) — precise `intent_to_click_rate` definition
 - [docs/ROADMAP.md](docs/ROADMAP.md) — backlog and event catalog
+- [docs/INTENT_REVIEW_AND_PRIORITIES.md](docs/INTENT_REVIEW_AND_PRIORITIES.md) — latest review findings and strict next-run implementation order
