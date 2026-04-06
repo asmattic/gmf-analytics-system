@@ -38,3 +38,7 @@ PostHog sessionization applies to funnel analysis for `intent_to_click_rate`.
 ## Shipping process
 
 Follow [GIT_WORKFLOW.md](./GIT_WORKFLOW.md): **PR → merge → delete branch**.
+
+## Next run priority order
+
+Execution order for the next implementation run is documented in [INTENT_REVIEW_AND_PRIORITIES.md](./INTENT_REVIEW_AND_PRIORITIES.md). Follow the numbered sequence under **Next-run implementation order (strict)**.
