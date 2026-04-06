@@ -20,12 +20,12 @@ pnpm lint       # ESLint
 
 ## Environment variables
 
-Copy `.env.example` to `.env.local`. At minimum set `NEXT_PUBLIC_POSTHOG_KEY` for browser capture. Optional: `NEXT_PUBLIC_POSTHOG_HOST`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_POSTHOG_INTENT_INSIGHT_URL`.
+Copy `.env.example` to `.env.local`. At minimum set `NEXT_PUBLIC_POSTHOG_KEY` for browser capture. Optional: `NEXT_PUBLIC_POSTHOG_HOST`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_CLARITY_PROJECT_ID`, `NEXT_PUBLIC_SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_ENVIRONMENT`, `NEXT_PUBLIC_POSTHOG_INTENT_INSIGHT_URL`.
 
 ## Code map
 
 - `src/app/` — App Router entry (`layout.tsx` wraps `AnalyticsProvider`)
-- `src/components/AnalyticsProvider.tsx` — client-only PostHog + optional gtag bootstrap
+- `src/components/AnalyticsProvider.tsx` — client-only PostHog + optional gtag, Clarity, and Sentry bootstrap
 - `src/tracking/` — event types, cohort detection, `trackEvent` dispatcher (`posthog-js` + `window.gtag`)
 - `src/dashboard/Dashboard.tsx` — internal dashboard UI and dev event triggers
 
