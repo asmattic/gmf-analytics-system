@@ -26,6 +26,7 @@ Copy `.env.example` to `.env.local`. At minimum set `NEXT_PUBLIC_POSTHOG_KEY` fo
 
 - `src/app/` — App Router entry (`layout.tsx` wraps `AnalyticsProvider`)
 - `src/components/AnalyticsProvider.tsx` — client-only PostHog + optional gtag, Clarity, and Sentry bootstrap
+- `src/components/IntentDashboardBoundary.tsx` — Sentry `ErrorBoundary` around the intent dashboard (tags: `intent_to_click_rate`)
 - `src/tracking/` — event types, cohort detection, `trackEvent` dispatcher (`posthog-js` + `window.gtag`)
 - `src/dashboard/Dashboard.tsx` — internal dashboard UI and dev event triggers
 

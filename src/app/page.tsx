@@ -1,5 +1,10 @@
+import { IntentDashboardBoundary } from "@/components/IntentDashboardBoundary";
 import { Dashboard } from "@/dashboard/Dashboard";
 
 export default function Home() {
-  return <Dashboard />;
+  return (
+    <IntentDashboardBoundary>
+      <Dashboard />
+    </IntentDashboardBoundary>
+  );
 }

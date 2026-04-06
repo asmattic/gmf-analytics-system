@@ -1,11 +1,31 @@
 "use client";
 
+import { useState } from "react";
+import * as Sentry from "@sentry/nextjs";
 import {
   trackContentViewArtist,
   trackScroll,
   trackTicketClick,
 } from "@/tracking/events";
 import { detectCohort } from "@/tracking/cohort";
+import type { TrafficCohort } from "@/tracking/types";
+
+function captureIntentDashboardSampleError(cohort: TrafficCohort) {
+  Sentry.withScope((scope) => {
+    scope.setTag("surface", "intent_dashboard");
+    scope.setTag("cohort", cohort);
+    scope.setTag("metric", "intent_to_click_rate");
+    scope.setContext("gmf_intent", {
+      cohort,
+      source: "dev_capture_exception",
+    });
+    Sentry.captureException(
+      new Error(
+        "GMF dev: sample dashboard exception (intent funnel context tags)",
+      ),
+    );
+  });
+}
 
 const cohorts = [
   { id: "google_paid" as const, label: "Google paid", hint: "?gclid=1" },
@@ -16,6 +36,13 @@ const cohorts = [
 export function Dashboard() {
   const activeCohort = detectCohort();
   const insightUrl = process.env.NEXT_PUBLIC_POSTHOG_INTENT_INSIGHT_URL;
+  const [forceBoundaryError, setForceBoundaryError] = useState(false);
+
+  if (forceBoundaryError) {
+    throw new Error(
+      "GMF dev: forced ErrorBoundary error (intent dashboard surface)",
+    );
+  }
 
   return (
     <div className="mx-auto flex min-h-full max-w-4xl flex-col gap-10 px-6 py-12">
@@ -141,6 +168,39 @@ export function Dashboard() {
             onClick={() => trackContentViewArtist("demo-artist")}
           >
             Artist view
+          </button>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-dashed border-zinc-300 bg-white/60 p-6 dark:border-zinc-700 dark:bg-zinc-950/40">
+        <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+          Dev: Sentry (intent dashboard)
+        </h2>
+        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+          Requires{" "}
+          <code className="rounded bg-zinc-100 px-1 py-0.5 text-xs dark:bg-zinc-900">
+            NEXT_PUBLIC_SENTRY_DSN
+          </code>
+          . Events are tagged with{" "}
+          <code className="rounded bg-zinc-100 px-1 py-0.5 text-xs dark:bg-zinc-900">
+            metric=intent_to_click_rate
+          </code>{" "}
+          and the detected cohort.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <button
+            type="button"
+            className="rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
+            onClick={() => captureIntentDashboardSampleError(activeCohort)}
+          >
+            Capture sample exception
+          </button>
+          <button
+            type="button"
+            className="rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-950 dark:text-zinc-100 dark:hover:bg-zinc-900"
+            onClick={() => setForceBoundaryError(true)}
+          >
+            Trigger ErrorBoundary
           </button>
         </div>
       </section>
