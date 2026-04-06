@@ -31,6 +31,7 @@ PostHog sessionization applies to funnel analysis for `intent_to_click_rate`.
 - [x] Next.js App Router + TypeScript + Tailwind (`pnpm`)
 - [x] Tracking module with typed events, SSR-safe dispatcher, cohort detection
 - [x] PostHog init + optional gtag, Clarity, and Sentry (`AnalyticsProvider`)
+- [x] Sentry `ErrorBoundary` + dev capture helpers on the intent dashboard (`IntentDashboardBoundary`, `Dashboard`)
 - [x] Metric documented; dashboard explains funnel + dev event buttons
 - [x] CI: lint + build on PR/push
 - [x] Commitlint + Husky
