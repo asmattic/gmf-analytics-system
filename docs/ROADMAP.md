@@ -9,6 +9,9 @@ GMF Analytics System optimizes UX using the core metric **`intent_to_click_rate`
 | `NEXT_PUBLIC_POSTHOG_KEY` | Recommended | PostHog project API key (browser) |
 | `NEXT_PUBLIC_POSTHOG_HOST` | Optional | PostHog API host (default `https://us.i.posthog.com`) |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Optional | GA4 measurement ID for gtag |
+| `NEXT_PUBLIC_CLARITY_PROJECT_ID` | Optional | Microsoft Clarity project id |
+| `NEXT_PUBLIC_SENTRY_DSN` | Optional | Sentry browser DSN for client error capture |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | Optional | Sentry environment label (e.g. development, production) |
 | `NEXT_PUBLIC_POSTHOG_INTENT_INSIGHT_URL` | Optional | Saved PostHog insight URL for the dashboard button |
 
 See root `.env.example`.
@@ -27,7 +30,7 @@ PostHog sessionization applies to funnel analysis for `intent_to_click_rate`.
 
 - [x] Next.js App Router + TypeScript + Tailwind (`pnpm`)
 - [x] Tracking module with typed events, SSR-safe dispatcher, cohort detection
-- [x] PostHog init + optional gtag (`AnalyticsProvider`)
+- [x] PostHog init + optional gtag, Clarity, and Sentry (`AnalyticsProvider`)
 - [x] Metric documented; dashboard explains funnel + dev event buttons
 - [x] CI: lint + build on PR/push
 - [x] Commitlint + Husky

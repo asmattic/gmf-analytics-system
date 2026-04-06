@@ -5,7 +5,7 @@ Intent-driven UX optimization system. North-star metric: **`intent_to_click_rate
 ## Stack
 
 - [Next.js](https://nextjs.org/) (App Router), TypeScript, Tailwind CSS
-- [PostHog](https://posthog.com/) + optional Google Analytics (gtag) via `src/tracking/`
+- [PostHog](https://posthog.com/) + optional Google Analytics (gtag), Microsoft Clarity, and Sentry via `src/components/AnalyticsProvider.tsx`
 
 ## Setup
 
@@ -14,7 +14,7 @@ pnpm install
 cp .env.example .env.local
 ```
 
-Fill in `NEXT_PUBLIC_POSTHOG_KEY` (and optional vars). Then:
+Fill in `NEXT_PUBLIC_POSTHOG_KEY` (and optional vars from `.env.example`, including Clarity and Sentry if used). Then:
 
 ```bash
 pnpm dev
