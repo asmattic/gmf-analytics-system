@@ -2,6 +2,7 @@
 
 # editor / local tooling
 .cursor/
+.claude/
 
 # dependencies
 /node_modules
