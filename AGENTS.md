@@ -59,3 +59,12 @@ Summary:
 - [docs/metrics.md](docs/metrics.md) — precise `intent_to_click_rate` definition
 - [docs/ROADMAP.md](docs/ROADMAP.md) — backlog and event catalog
 - [docs/INTENT_REVIEW_AND_PRIORITIES.md](docs/INTENT_REVIEW_AND_PRIORITIES.md) — latest review findings and strict next-run implementation order
+
+## Learned User Preferences
+
+- When implementing from an attached plan, do not edit the plan file; advance pre-created todos in order (mark in progress, then completed) instead of recreating them.
+- Compose commit messages so Husky commitlint accepts them; wrap commit body lines when line-length rules reject a long single-line paragraph.
+
+## Learned Workspace Facts
+
+- After remote branches are removed on GitHub, run `git fetch --prune` if local `remotes/origin/*` still lists branches that no longer exist on the remote.
